@@ -50,6 +50,7 @@ public class SC_TopDownController : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             targetObject.SetActive(true);
+            GetComponent<PlayerNavMesh>().SetNewTarget(targetObject.transform.position);
         }
         if (Input.GetButtonUp("Fire1"))
         {
