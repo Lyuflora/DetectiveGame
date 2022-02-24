@@ -63,8 +63,8 @@ public class PenTool : MonoBehaviour
 
     private void Start()
     {
-        //penCanvas.OnPenCanvasLeftClickEvent += AddDot;
-        penCanvas.OnPenCanvasLeftClickEvent += DrawNewLine;
+        penCanvas.OnPenCanvasLeftClickEvent += AddDot;
+        //penCanvas.OnPenCanvasLeftClickEvent += DrawNewLine;
 
         lineList = new List<NodeLine>();
         DisableMindMap();

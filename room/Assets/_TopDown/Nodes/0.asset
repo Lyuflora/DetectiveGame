@@ -19,7 +19,6 @@ MonoBehaviour:
   - nodeId: 5
     clueNodeInfo: {fileID: 11400000, guid: aa2b6e245c76b544cb6f9081806e4dcd, type: 2}
   linkableList:
-  - {fileID: 11400000}
   - {fileID: 11400000, guid: 37c9afd85e22f764e94d0ebf76b618ee, type: 2}
   - {fileID: 11400000, guid: dfab5207c3ef2d84bb7927d745c31eb7, type: 2}
   - {fileID: 11400000, guid: d9ab00c9f783e5948b3b22e9bacac19b, type: 2}

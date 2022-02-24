@@ -32,10 +32,7 @@ namespace Dec
 
         }
 
-        private void Start()
-        {
 
-        }
 
     }
 }

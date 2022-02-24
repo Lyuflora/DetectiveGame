@@ -17,13 +17,13 @@ namespace Dec
         public void OnLeftClick()
         {
             Debug.Log("Left Click Ground");
-            SC_TopDownController.m_Instance.ActivateTarget();
+            //SC_TopDownController.m_Instance.ActivateTarget();
 
         }
 
         public void OnLeftClickUp()
         {
-            SC_TopDownController.m_Instance.DeactivateTarget();
+            //SC_TopDownController.m_Instance.DeactivateTarget();
         }
 
         public void OnRightClickDown()

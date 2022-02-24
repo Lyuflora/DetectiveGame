@@ -16,7 +16,7 @@ namespace Dec
         {
             // 每条线索有一个唯一的id
             Manifest.m_Instance.m_Clues.Add(Manifest.m_Instance.m_ClueBase[id]);
-            Clue currentClue = Manifest.m_Instance.m_ClueBase[id];
+            ItemInfo currentClue = Manifest.m_Instance.m_ClueBase[id];
             // 激活节点
             if (currentClue.linkNode)
             {

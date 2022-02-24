@@ -65,6 +65,7 @@
     <Compile Include="Assets\Stylizer\Resources\Scripts\Stylizer.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\NPC.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\IClickable.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\ItemInfo.cs" />
     <Compile Include="Assets\PixelPlatform\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\DotController.cs" />
     <Compile Include="Assets\_TopDown\Scripts\SC_TopDownController.cs" />
@@ -74,17 +75,18 @@
     <Compile Include="Assets\_TopDown\Scripts\OutlineController.cs" />
     <Compile Include="Assets\PixelPlatform\Scripts\SpriteObject.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\GrainMod.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\GrainComp.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\TestAPP.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\StylizerBase.cs" />
     <Compile Include="Assets\_TopDown\Scripts\CustomImageEffect.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Ground.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\MF.cs" />
     <Compile Include="Assets\_TopDown\PlayerNavMesh.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\Pixelation.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostProf.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Clue.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\Item.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\Interactables.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\Billboard.cs" />
     <Compile Include="Assets\_TopDown\Manifest.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\Vertex.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\RTF.cs" />
     <Compile Include="Assets\_TopDown\Scripts\ClueManager.cs" />
     <Compile Include="Assets\_TopDown\Scripts\NodeInfo.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\ClueTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

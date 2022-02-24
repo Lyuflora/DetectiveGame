@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e1544519fd9a84393d853e6134ee59, type: 3}
+  m_Name: Flower
+  m_EditorClassIdentifier: 
+  type: 0
+  clueId: 0
+  title: Flowerrr
+  available: 1
+  description: this is a flower flower flower
+  image: {fileID: 21300000, guid: 2048119537defaa45a5f7ef29ff78275, type: 3}
+  audioClip: {fileID: 0}
+  grabbable: 1
+  linkNode: 0
+  requiredItem: 0
+  inventoryItem: 1
+  collectMessage: 

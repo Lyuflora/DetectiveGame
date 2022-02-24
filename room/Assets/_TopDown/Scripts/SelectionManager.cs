@@ -87,7 +87,7 @@ namespace Dec
                         {
                             ground.OnLeftClickUp();
                         }
-                        SC_TopDownController.m_Instance.UpdateTargetTrans();
+                        // SC_TopDownController.m_Instance.UpdateTargetTrans(); // character movement
                     }
                 }
 
