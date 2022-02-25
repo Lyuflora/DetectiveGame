@@ -11,7 +11,8 @@ public class PenTool : MonoBehaviour
 
     [Header("Dots")]
     [SerializeField] Transform dotParent;
-    [SerializeField] GameObject dotPrefab;
+    [SerializeField] GameObject dotCanvas;
+    [SerializeField] public GameObject dotPrefab;
     [SerializeField] List<NodeSphere> NodeList;
     [SerializeField] Color startHighlight;
     [SerializeField] Color endHighlight;
@@ -32,6 +33,7 @@ public class PenTool : MonoBehaviour
     public static PenTool m_Instance;
     public bool isMindMapOn = false;
     private bool isLinePermitted = true;
+    public Transform newNodePos;
 
     private void Awake()
     {
@@ -40,15 +42,16 @@ public class PenTool : MonoBehaviour
 
     public void SwitchMindMap()
     {
-
-        dotParent.gameObject.SetActive(!isMindMapOn);
-            lineParent.gameObject.SetActive(!isMindMapOn);
-            isMindMapOn = !isMindMapOn;
+        dotCanvas.gameObject.SetActive(!isMindMapOn);
+        lineParent.gameObject.SetActive(!isMindMapOn);
+        penCanvas.gameObject.SetActive(!isMindMapOn);
+        isMindMapOn = !isMindMapOn;
     }
     public void SwitchMindMap(bool state)
     {
-        dotParent.gameObject.SetActive(state);
+        dotCanvas.gameObject.SetActive(state);
         lineParent.gameObject.SetActive(state);
+        penCanvas.gameObject.SetActive(state);
     }
     public void EnableMindMap()
     {
@@ -63,16 +66,17 @@ public class PenTool : MonoBehaviour
 
     private void Start()
     {
-        penCanvas.OnPenCanvasLeftClickEvent += AddDot;
-        //penCanvas.OnPenCanvasLeftClickEvent += DrawNewLine;
+        //penCanvas.OnPenCanvasLeftClickEvent += AddDot;
+        penCanvas.OnPenCanvasLeftClickEvent += TestDot;
 
         lineList = new List<NodeLine>();
-        DisableMindMap();
+            EnableMindMap();
+        //DisableMindMap();
     }
 
     public void TestDot()
     {
-
+            Debug.Log("!!!!!!!!Test Click Canvas");
     }
 
     public void AddDot()
@@ -110,13 +114,12 @@ public class PenTool : MonoBehaviour
     }
     public void SetStartPoint(NodeSphere node)
     {
-        Debug.Log("This is Start");
         start = node;
         start_id = node.m_nodeInfo.nodeId;
-        if (start.GetComponent<MeshRenderer>().material)
-        {
-            start.GetComponent<MeshRenderer>().material.color = startHighlight;
-        }    
+        //if (start.GetComponent<MeshRenderer>().material)
+        //{
+        //    start.GetComponent<MeshRenderer>().material.color = startHighlight;
+        //}    
     }
 
     public void SetEndPoint(NodeSphere node)
@@ -124,19 +127,20 @@ public class PenTool : MonoBehaviour
         Debug.Log("This is End");
         end = node;
         end_id = node.m_nodeInfo.nodeId;
-        if (end.GetComponent<MeshRenderer>().material)
-        {
-            end.GetComponent<MeshRenderer>().material.color = endHighlight;
-        }
+            // 3D
+        //if (end.GetComponent<MeshRenderer>().material)
+        //{
+        //    end.GetComponent<MeshRenderer>().material.color = endHighlight;
+        //}
         
         isLinePermitted = ClueManager.m_Instance.AttemptLink(start.m_nodeInfo, end.m_nodeInfo)|| ClueManager.m_Instance.AttemptLink(end.m_nodeInfo, start.m_nodeInfo);
         if (true)//isLinePermitted
             {
 
-            if (start.GetComponent<MeshRenderer>().material)
-                start.GetComponent<MeshRenderer>().material.color = normalHighlight;
-            if (end.GetComponent<MeshRenderer>().material)
-                end.GetComponent<MeshRenderer>().material.color = normalHighlight;
+            //if (start.GetComponent<MeshRenderer>().material)
+            //    start.GetComponent<MeshRenderer>().material.color = normalHighlight;
+            //if (end.GetComponent<MeshRenderer>().material)
+            //    end.GetComponent<MeshRenderer>().material.color = normalHighlight;
             DrawNewLine();
             }
             
@@ -166,7 +170,7 @@ public class PenTool : MonoBehaviour
             currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity, lineParent).GetComponent<NodeLine>();
         }
 
-        // Debug.Log("Draw from Start to End");
+         Debug.Log("Draw from Start"+ r_Start+ " to End "+ r_End);
 
         currentLine.AddPoint(r_Start.transform);
         currentLine.AddPoint(r_End.transform);
@@ -180,9 +184,32 @@ public class PenTool : MonoBehaviour
         end = null;
         currentLine = null;
     }
+    public void AddNodeSphereToScreen(int start, int end, NodeInfo nodeInfo)
+    {
+        NodeSphere startSphere = TestAPP.m_Instance.m_NodeSphereList[start];
+        NodeSphere endSphere = TestAPP.m_Instance.m_NodeSphereList[end];
+        Vector3 newNodePos = (startSphere.transform.position + endSphere.transform.position) / 2;
+        NodeSphere dot = Instantiate(PenTool.m_Instance.dotPrefab, newNodePos, Quaternion.identity, dotParent).GetComponent<NodeSphere>();
+        dot.m_nodeInfo = nodeInfo;
+        if (dot.GetComponent<Billboard>())
+        {
+            dot.GetComponent<Billboard>().SetIdText(dot.m_nodeInfo.nodeId);
+        }
+    }
 
-    // calculate world position of mouse
-    private Vector3 GetMousePosition()
+        public void AddNodeSphereToScreen(NodeInfo nodeInfo)
+        {
+
+            NodeSphere dot = Instantiate(PenTool.m_Instance.dotPrefab, newNodePos.position, Quaternion.identity, dotParent).GetComponent<NodeSphere>();
+            dot.m_nodeInfo = nodeInfo;
+            if (dot.GetComponent<Billboard>())
+            {
+                dot.GetComponent<Billboard>().SetIdText(dot.m_nodeInfo.nodeId);
+            }
+        }
+
+        // calculate world position of mouse
+        private Vector3 GetMousePosition()
     {
         Vector3 worldMousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.3f);
 

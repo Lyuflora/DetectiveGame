@@ -7,14 +7,15 @@ namespace Dec
     public class NodeLine : MonoBehaviour, IClickable
     {
         //  µ ©ªÊ÷∆
+        [SerializeField]
         private LineRenderer lr;
-        private List<Transform> points;
+        private List<Transform> points= new List<Transform>();
 
         private void Awake()
         {
             lr = GetComponent<LineRenderer>();
             lr.positionCount = 0;
-            points = new List<Transform>();
+            //points = new List<Transform>();
         }
 
         public void SetUpLine(List<Transform> points)
@@ -25,6 +26,7 @@ namespace Dec
         public void AddPoint(Transform point)
         {
             lr.positionCount++;
+            Debug.Log(points);
             points.Add(point);
         }
 

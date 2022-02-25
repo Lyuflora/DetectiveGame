@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ClueBase: []
   m_Clues: []
+  m_NodeSphereList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_NodeInfoList:
   - {fileID: 11400000, guid: 07c749e435060e046b13f1bbea65c083, type: 2}
   - {fileID: 11400000, guid: 4dab73fe15354654382249300d2731be, type: 2}
   - {fileID: 11400000, guid: dfab5207c3ef2d84bb7927d745c31eb7, type: 2}
   - {fileID: 11400000, guid: 09dbcb5f7a2dab54b808bf3d01ec39a3, type: 2}
   - {fileID: 11400000, guid: 37c9afd85e22f764e94d0ebf76b618ee, type: 2}
-  - {fileID: 11400000, guid: dcf2d13919318dd40856a5ddf71b283f, type: 2}
-  - {fileID: 11400000, guid: d9ab00c9f783e5948b3b22e9bacac19b, type: 2}
   m_SpecialNodeList:
   - {fileID: 11400000, guid: f6576996814c9ff4583a29bd9069ee6c, type: 2}
   - {fileID: 11400000, guid: aa2b6e245c76b544cb6f9081806e4dcd, type: 2}

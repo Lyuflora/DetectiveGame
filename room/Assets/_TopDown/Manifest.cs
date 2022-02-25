@@ -10,6 +10,7 @@ namespace Dec {
         public List<ItemInfo> m_ClueBase;
         public List<ItemInfo> m_Clues;
         public AdjacencyList<int> m_InitGraph;
+        public List<NodeSphere> m_NodeSphereList;
         public List<NodeInfo> m_NodeInfoList;   // 理想情况是按顺序放置
         public List<NodeInfo> m_SpecialNodeList;    // 用于查询新合成的点
 

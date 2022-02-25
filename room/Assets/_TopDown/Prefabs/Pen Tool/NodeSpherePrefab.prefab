@@ -126,7 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineWidth: 0.1
-  clueList: []
+  itemInfo: {fileID: 0}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  CollectItem:
+    m_PersistentCalls:
+      m_Calls: []
+  isMoving: 0
 --- !u!114 &7141826636227060457
 MonoBehaviour:
   m_ObjectHideFlags: 0

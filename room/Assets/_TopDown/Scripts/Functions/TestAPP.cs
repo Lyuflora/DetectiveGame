@@ -11,7 +11,6 @@ namespace Dec
         public Action OnGraphChangeEvent;
         
         public GameObject m_NodeSpherePrefab;
-        public Transform m_NodeParent;
         public Manifest m_Manifest;
         public List<NodeSphere> m_NodeSphereList;
         public AdjacencyList<int> m_Graph;
@@ -30,7 +29,7 @@ namespace Dec
                 {
                     if(TestAPP.m_Instance.m_Graph.TestEdge(i, list[i].coupleIdList[j].nodeId))
                     {
-                        Debug.Log("New Node");
+                        Debug.Log("Link and get New Node");
                     }
                 }
                 
@@ -51,17 +50,14 @@ namespace Dec
                         m_Graph.AddVertex(node.coupleIdList[i].clueNodeInfo.nodeId);
 
                         // AddNodeSphereToGraph
-                        NodeSphere startSphere = m_NodeSphereList[start];
-                        NodeSphere endSphere = m_NodeSphereList[end];
-                        Vector3 newNodePos = (startSphere.transform.position + endSphere.transform.position) / 2;
-                        NodeSphere dot = Instantiate(m_NodeSpherePrefab, newNodePos, Quaternion.identity, m_NodeParent).GetComponent<NodeSphere>();
-                        dot.m_nodeInfo = node.coupleIdList[i].clueNodeInfo;
-                        dot.GetComponent<Billboard>().SetIdText(dot.m_nodeInfo.nodeId);
+                        PenTool.m_Instance.AddNodeSphereToScreen(start, end, node.coupleIdList[i].clueNodeInfo);
                     }
                 }
             }
             
         }
+
+
 
         public void Start()
         {
