@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/_TopDown/Scenes/DrawLine.unity
+- path: Assets/_TopDown/Scenes/FinalDetective.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

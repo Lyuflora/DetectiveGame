@@ -12,8 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3e5c438735a9d4e8bce6a79be908d1, type: 3}
   m_Name: TestManifest
   m_EditorClassIdentifier: 
-  m_ClueBase: []
-  m_Clues: []
+  m_AllClues:
+  - {fileID: 11400000, guid: e04c3586479b004428047c276ea2d725, type: 2}
+  - {fileID: 11400000, guid: c784ab3ce08f7da4ab4c77d04fb347cc, type: 2}
+  - {fileID: 11400000, guid: 0c58a9adf40e0d645bf15a151877b202, type: 2}
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: 2aae25f9a8f88f94b8916cc638b587f8, type: 2}
+  m_AllItems:
+  - {fileID: 11400000, guid: 7232cff1282226f4f94b9ed0da6fa4e7, type: 2}
+  - {fileID: 11400000, guid: a95dad41ba22d9b499cd7bc71e8e2635, type: 2}
+  - {fileID: 11400000, guid: d796fdbc69e72944e9c45fbe1d80dc7e, type: 2}
+  - {fileID: 11400000, guid: 65de17d69cf3dcc4190ee4a81f9bfb9a, type: 2}
+  - {fileID: 11400000, guid: 5c379db6126585048a4fa8be9201eabe, type: 2}
+  - {fileID: 11400000, guid: 732f508f719f02047a2f2b0c58b33240, type: 2}
   m_NodeSphereList:
   - {fileID: 0}
   - {fileID: 0}

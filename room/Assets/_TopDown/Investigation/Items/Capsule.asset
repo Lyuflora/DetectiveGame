@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e1544519fd9a84393d853e6134ee59, type: 3}
+  m_Name: Capsule
+  m_EditorClassIdentifier: 
+  type: 0
+  title: Capsule
+  available: 0
+  description: 
+  image: {fileID: 0}
+  audioClip: {fileID: 0}
+  linkNode: 0
+  inventoryItem: 1
+  collectMessage: 
+  grabbable: 1
+  requiredItem: 0
+  isFound: 1
+  clueList:
+  - {fileID: 11400000, guid: e04c3586479b004428047c276ea2d725, type: 2}

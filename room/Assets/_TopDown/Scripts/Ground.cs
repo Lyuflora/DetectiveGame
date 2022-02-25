@@ -16,7 +16,7 @@ namespace Dec
 
         public void OnLeftClick()
         {
-            Debug.Log("Left Click Ground");
+            //Debug.Log("Left Click Ground");
             //SC_TopDownController.m_Instance.ActivateTarget();
 
         }

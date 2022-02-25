@@ -8,7 +8,8 @@ namespace Dec
 
 	public class PlayerInteraction : MonoBehaviour
 	{
-		public float nearRayDistance = 2f;
+		public static PlayerInteraction m_Instance;
+		public float nearRayDistance = 200f;
 		public float rotateSpeed = 200;
 
 		public AudioClip writingSound;
@@ -28,9 +29,11 @@ namespace Dec
 
 		[SerializeField]
 		private Interactables currentInteractable;
-		private ItemInfo currentItem;
+		private Item currentItem;
 		private Vector3 originPosition;
 		private Quaternion originRotation;
+
+		private Vector3 origionalScale;
 
 		//private AudioPlayer audioPlayer;
 		private PlayerInventory inventory;
@@ -39,15 +42,20 @@ namespace Dec
 		{
 			//audioPlayer = GetComponent<AudioPlayer>();
 			inventory = GetComponent<PlayerInventory>();
+			m_Instance = this;
 		}
 
-		// Start is called before the first frame update
+		public Item GetCurrentItem()
+        {
+			return currentItem;
+
+		}
+
 		void Start()
 		{
 			myCam = Camera.main;
 		}
 
-		// Update is called once per frame
 		void Update()
 		{
 			CheckInteractables();
@@ -127,7 +135,25 @@ namespace Dec
 								originPosition = currentInteractable.transform.position;
 								originRotation = currentInteractable.transform.rotation;
 								StartCoroutine(MovingObject(currentInteractable, objectViewer.position, 6f));
+                            }
+                            else
+                            {
+								// Add Clue
+								// The clue on ungrabbable item can be found on item
+								Debug.Log("Trigger Item Dialog");
+                                if (currentInteractable.itemInfo)
+                                {
+									//TestAPP.m_Instance.m_ClueManager.AddClue(m_Clue);
+									for(int i=0; i< currentInteractable.itemInfo.clueList.Count; i++)
+                                    {
+										currentInteractable.itemInfo.clueList[i].isFound = true;
+
+									}
+									
+								}
+								
 							}
+							UIManager.m_Instance.RefreshInventory();
 						}
 
 
@@ -145,7 +171,7 @@ namespace Dec
 
 		}
 
-		void Interact(ItemInfo item)
+		void Interact(Item item)
 		{
 			currentItem = item;
 
@@ -153,6 +179,7 @@ namespace Dec
 			{
 				//UIManager.m_Instance.SetImage(item.image);
 			}
+
 			//audioPlayer.PlayAudio(item.audioClip);
 			// UIManager.m_Instance.SetCaptions(item.text);
 			// Invoke("CanFinish", item.audioClip.length + 0.5f);
@@ -201,14 +228,19 @@ namespace Dec
 			OnFinishView.Invoke();
 		}
 
-		IEnumerator MovingObject(Interactables obj, Vector3 position, float universalScale)
+		IEnumerator MovingObject(Interactables obj, Vector3 position, float scaleFactor)
 		{
 			obj.isMoving = true;
 			float timer = 0;
+			if(isViewing)
+            {
+				origionalScale = obj.transform.localScale;
+			}
+			
 			while (timer < 1)
 			{
 				obj.transform.position = Vector3.Lerp(obj.transform.position, position, Time.deltaTime * 5);
-				obj.transform.localScale = Vector3.Lerp(obj.transform.localScale, new Vector3(universalScale, universalScale, universalScale), Time.deltaTime * 5);
+				obj.transform.localScale = Vector3.Lerp(obj.transform.localScale, origionalScale * scaleFactor, Time.deltaTime * 5);
 				timer += Time.deltaTime;
 				yield return null;
 			}
@@ -230,14 +262,13 @@ namespace Dec
 			Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 			Debug.DrawRay(myCam.transform.position, ray.direction, Color.green);
 
-			if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+			if (Physics.Raycast(ray, out hit, nearRayDistance))
 			{
 				ClueTrigger trigger = hit.collider.GetComponent<ClueTrigger>();
-				
+
 				if (trigger != null)
 				{
-					Debug.Log("Find Clue" + currentItem.title);
-					UIManager.m_Instance.ShowCluePopup(currentItem.title, currentItem.description);
+					trigger.GainClue();
 				}
 			}
 

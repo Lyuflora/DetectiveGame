@@ -1,14 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dec
 {
-	[System.Serializable]
+    [System.Serializable]
 	public class WinCondition
 	{
-		public List<ItemInfo> requiredItens;
-		public List<ItemInfo> interactedItens;
+		public List<Item> requiredItens;
+		public List<Item> interactedItens;
 		//	public CutsceneController winCutscene;
 		public bool alreadyPlayed;
 	}
@@ -18,20 +17,20 @@ namespace Dec
 
 		public WinCondition[] winCondition;
 
-		public List<ItemInfo> itens;
+		public List<Item> inventory;
 
-		public void AddItem(ItemInfo item)
+		public void AddItem(Item item)
 		{
-			if (itens.Contains(item))
+			if (inventory.Contains(item))
 			{
 				return;
 			}
 
 			//UIManager.m_Instance.SetItens(item, itens.Count);
-			itens.Add(item);
+			inventory.Add(item);
 		}
 
-		public void AddRequiredItens(ItemInfo item)
+		public void AddRequiredItens(Item item)
 		{
 			for (int i = 0; i < winCondition.Length; i++)
 			{

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 554b4ff9a936fe543bd333dac7ae9b07
+timeCreated: 1520763298
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: hala-jamil fonts
+  fontNames:
+  - hala-jamil fonts
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

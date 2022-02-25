@@ -10,7 +10,7 @@ namespace Dec
         public float outlineWidth = 0.1f;
 
         [Header("Clues from the item")]
-        public ItemInfo itemInfo;
+        public Item itemInfo;
 
         public UnityEvent OnInteract;
         public UnityEvent CollectItem;

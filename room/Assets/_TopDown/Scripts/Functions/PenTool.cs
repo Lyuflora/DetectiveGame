@@ -70,8 +70,8 @@ public class PenTool : MonoBehaviour
         penCanvas.OnPenCanvasLeftClickEvent += TestDot;
 
         lineList = new List<NodeLine>();
-            EnableMindMap();
-        //DisableMindMap();
+           //EnableMindMap();
+        DisableMindMap();
     }
 
     public void TestDot()
@@ -133,7 +133,7 @@ public class PenTool : MonoBehaviour
         //    end.GetComponent<MeshRenderer>().material.color = endHighlight;
         //}
         
-        isLinePermitted = ClueManager.m_Instance.AttemptLink(start.m_nodeInfo, end.m_nodeInfo)|| ClueManager.m_Instance.AttemptLink(end.m_nodeInfo, start.m_nodeInfo);
+        isLinePermitted =TestAPP.m_Instance.m_ClueManager.AttemptLink(start.m_nodeInfo, end.m_nodeInfo)|| TestAPP.m_Instance.m_ClueManager.AttemptLink(end.m_nodeInfo, start.m_nodeInfo);
         if (true)//isLinePermitted
             {
 

@@ -77,7 +77,6 @@ namespace Dec
 
                     if (hit.transform.CompareTag("Ground"))
                     {
-                        Debug.Log("on Ground");
                         if (Input.GetButton("Fire1"))
                         {
                             ground = hit.transform.GetComponent<Ground>();

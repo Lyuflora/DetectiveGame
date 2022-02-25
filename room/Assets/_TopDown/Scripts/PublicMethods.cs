@@ -7,7 +7,7 @@ public class PublicMethods : MonoBehaviour
 
 }
 
-public enum ClueType
+public enum ItemType
 {
     Weapon=0,
     Time,

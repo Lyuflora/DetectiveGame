@@ -8,18 +8,22 @@ namespace Dec
     public class TestAPP : MonoBehaviour
     {
         public static TestAPP m_Instance;
-        public Action OnGraphChangeEvent;
-        
-        public GameObject m_NodeSpherePrefab;
+
         public Manifest m_Manifest;
-        public List<NodeSphere> m_NodeSphereList;
-        public AdjacencyList<int> m_Graph;
+        public ClueManager m_ClueManager;
+
+        [HideInInspector]
+        public Action OnGraphChangeEvent;
+        [HideInInspector] public GameObject m_NodeSpherePrefab;
+        [HideInInspector] public List<NodeSphere> m_NodeSphereList;
+        [HideInInspector] public AdjacencyList<int> m_Graph;
 
         private void Awake()
         {
             m_Instance = this;
         }
-
+        // ----------------------------
+        // Mind map Graph
         public void CheckGraphFromStart()
         {
             List<NodeInfo> list = m_Manifest.m_NodeInfoList;
@@ -57,8 +61,6 @@ namespace Dec
             
         }
 
-
-
         public void Start()
         {
             
@@ -84,7 +86,6 @@ namespace Dec
                 AddNodeToGraph(i);
             }
         }
-
         public void AddNodeToGraph(int index)
         {
             m_Graph.AddVertex(index);

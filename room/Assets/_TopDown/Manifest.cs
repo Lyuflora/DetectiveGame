@@ -7,12 +7,13 @@ namespace Dec {
     public class Manifest : ScriptableObject
     {
         public static Manifest m_Instance;
-        public List<ItemInfo> m_ClueBase;
-        public List<ItemInfo> m_Clues;
-        public AdjacencyList<int> m_InitGraph;
-        public List<NodeSphere> m_NodeSphereList;
-        public List<NodeInfo> m_NodeInfoList;   // 理想情况是按顺序放置
-        public List<NodeInfo> m_SpecialNodeList;    // 用于查询新合成的点
+        public List<Clue> m_AllClues;
+        public List<Item> m_AllItems;
+
+        [HideInInspector] public AdjacencyList<int> m_InitGraph;
+        [HideInInspector] public List<NodeSphere> m_NodeSphereList;
+        [HideInInspector] public List<NodeInfo> m_NodeInfoList;   // 理想情况是按顺序放置
+        [HideInInspector] public List<NodeInfo> m_SpecialNodeList;    // 用于查询新合成的点
 
         private void Awake()
         {

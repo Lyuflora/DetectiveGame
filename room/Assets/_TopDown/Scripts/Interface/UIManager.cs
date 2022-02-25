@@ -22,10 +22,10 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
-    public void RefreshWiki()
+    public void RefreshInventory()
     {
 
     }
