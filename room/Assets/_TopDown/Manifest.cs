@@ -15,6 +15,8 @@ namespace Dec {
         [HideInInspector] public List<NodeInfo> m_NodeInfoList;   // 理想情况是按顺序放置
         [HideInInspector] public List<NodeInfo> m_SpecialNodeList;    // 用于查询新合成的点
 
+        public Sprite[] ItemTypeSprites;
+
         private void Awake()
         {
             m_Instance = this;

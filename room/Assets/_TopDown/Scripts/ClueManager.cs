@@ -11,8 +11,12 @@ namespace Dec
         [Header("Debug")]
         public List<Clue> m_ViewCurrentClues;
         public List<Item> m_ViewCurrentItems;
+        public static ClueManager m_Instance;
 
-
+        private void Awake()
+        {
+            m_Instance = this;
+        }
         private void Start()
         {
             m_ViewCurrentClues = new List<Clue>();
@@ -26,6 +30,12 @@ namespace Dec
             for(int i=0;i<TestAPP.m_Instance.m_Manifest.m_AllClues.Count; i++)
             {
                 TestAPP.m_Instance.m_Manifest.m_AllClues[i].isFound = false;
+            }
+
+            for (int i = 0; i < TestAPP.m_Instance.m_Manifest.m_AllItems.Count; i++)
+            {
+                TestAPP.m_Instance.m_Manifest.m_AllItems[i].isFound = false;
+                TestAPP.m_Instance.m_Manifest.m_AllItems[i].clueList.Clear();
             }
         }
 
@@ -47,24 +57,30 @@ namespace Dec
             r_Clue.isFound = true;
             targetItem.clueList.Add(r_Clue);
             targetItem.isFound = true;
-            Debug.Log("Add clue");
+            Debug.Log("Add clue" + r_Clue.title);
 
             // For previewing
-            PreviewClue(r_Clue, targetItem);
+            UpdatePreviewClue(r_Clue, targetItem);
         }
 
-        public void PreviewClue(Clue r_Clue, Item r_Item)
+        public void UpdatePreviewClue(Clue r_Clue=null, Item r_Item = null)
         {
-            Debug.Log("Add clue" + r_Clue.name);
-            
-            if (!m_ViewCurrentClues.Contains(r_Clue))
+
+            if (r_Clue != null)
             {
-                m_ViewCurrentClues.Add(r_Clue);
+                if (!m_ViewCurrentClues.Contains(r_Clue))
+                {
+                    m_ViewCurrentClues.Add(r_Clue);
+                }
             }
-            if (!m_ViewCurrentItems.Contains(r_Item))
+            if (r_Item != null)
             {
-                m_ViewCurrentItems.Add(r_Item);                
+                if (!m_ViewCurrentItems.Contains(r_Item))
+                {
+                    m_ViewCurrentItems.Add(r_Item);
+                }
             }
+
             return;
         }
 

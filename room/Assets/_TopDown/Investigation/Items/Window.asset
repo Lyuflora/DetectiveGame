@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e1544519fd9a84393d853e6134ee59, type: 3}
   m_Name: Window
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   title: RainyWeather
   available: 0
   description: 
-  image: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3a849db32028fb449b73e802b10ee479, type: 3}
   audioClip: {fileID: 0}
   linkNode: 0
   inventoryItem: 1
@@ -25,5 +25,7 @@ MonoBehaviour:
   requiredItem: 0
   isFound: 0
   clueList:
+  - {fileID: 11400000, guid: 01c5919bb4e032940809c815516fa215, type: 2}
+  - {fileID: 11400000, guid: 4423508ae620433439399821d60ddb35, type: 2}
   - {fileID: 11400000, guid: 01c5919bb4e032940809c815516fa215, type: 2}
   - {fileID: 11400000, guid: 4423508ae620433439399821d60ddb35, type: 2}

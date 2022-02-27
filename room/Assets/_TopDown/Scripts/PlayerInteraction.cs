@@ -128,7 +128,7 @@ namespace Dec
 							}
 							*/
 
-							Interact(currentInteractable.itemInfo);
+							InteractUI(currentInteractable.itemInfo);
 
 							if (currentInteractable.itemInfo.grabbable)
 							{
@@ -143,11 +143,14 @@ namespace Dec
 								Debug.Log("Trigger Item Dialog");
                                 if (currentInteractable.itemInfo)
                                 {
-									//TestAPP.m_Instance.m_ClueManager.AddClue(m_Clue);
+									
+									// 一次性将所有的线索加入已发现的列表中
 									for(int i=0; i< currentInteractable.itemInfo.clueList.Count; i++)
                                     {
-										currentInteractable.itemInfo.clueList[i].isFound = true;
-
+										Clue clue = currentInteractable.itemInfo.clueList[i];
+										TestAPP.m_Instance.m_ClueManager.AddClue(clue);
+										clue.isFound = true;
+										ClueManager.m_Instance.UpdatePreviewClue(clue);
 									}
 									
 								}
@@ -171,11 +174,11 @@ namespace Dec
 
 		}
 
-		void Interact(Item item)
+		void InteractUI(Item item)
 		{
 			currentItem = item;
 
-			if (item.image != null)
+			if (item.icon != null)
 			{
 				//UIManager.m_Instance.SetImage(item.image);
 			}
@@ -190,7 +193,7 @@ namespace Dec
 		{
 			canFinish = true;
 
-			if (currentItem.image == null && !currentItem.grabbable)
+			if (currentItem.icon == null && !currentItem.grabbable)
 			{
 				FinishView();
 			}
@@ -211,8 +214,10 @@ namespace Dec
 			if (currentItem.inventoryItem)
 			{
 				inventory.AddItem(currentItem);
+
+				// Specific event bound to each item -- !
 				//audioPlayer.PlayAudio(writingSound);
-				currentInteractable.CollectItem.Invoke();
+				currentInteractable.AfterCollectItem.Invoke();
 			}
 			if (currentItem.grabbable)
 			{

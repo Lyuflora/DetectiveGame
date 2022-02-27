@@ -13,7 +13,7 @@ namespace Dec
         public Item itemInfo;
 
         public UnityEvent OnInteract;
-        public UnityEvent CollectItem;
+        public UnityEvent AfterCollectItem;
         [HideInInspector]
         public bool isMoving;
 

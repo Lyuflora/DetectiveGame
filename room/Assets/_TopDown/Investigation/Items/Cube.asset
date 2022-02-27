@@ -16,14 +16,14 @@ MonoBehaviour:
   title: Cube
   available: 0
   description: A Standard Cube
-  image: {fileID: 0}
+  icon: {fileID: 21300000, guid: 02bfdd4432bd5b14b8fafc5e7129a6fb, type: 3}
   audioClip: {fileID: 0}
   linkNode: 0
   inventoryItem: 0
   collectMessage: 
   grabbable: 1
   requiredItem: 0
-  isFound: 1
+  isFound: 0
   clueList:
   - {fileID: 11400000, guid: c784ab3ce08f7da4ab4c77d04fb347cc, type: 2}
   - {fileID: 11400000, guid: 0c58a9adf40e0d645bf15a151877b202, type: 2}

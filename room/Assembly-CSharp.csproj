@@ -112,6 +112,10 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Clue.cs" />
     <Compile Include="Assets\_TopDown\Scripts\ClueManager.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\InventoryUI.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\InventorySlot.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\ClueSlot.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Paperwork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,12 +15,17 @@ namespace Dec
 
 	public class PlayerInventory : MonoBehaviour
 	{
-
+		public static PlayerInventory m_Instance;
 		public WinCondition[] winCondition;
 
 		public List<Item> inventory;
+		public Action OnItemChangedEvent;	// when item changes, call UpdateUI
 
-		public void AddItem(Item item)
+		private void Awake()
+        {
+			m_Instance = this;
+        }
+        public void AddItem(Item item)
 		{
 			if (inventory.Contains(item))
 			{
@@ -28,6 +34,7 @@ namespace Dec
 
 			//UIManager.m_Instance.SetItens(item, itens.Count);
 			inventory.Add(item);
+			OnItemChangedEvent.Invoke();
 		}
 
 		public void AddRequiredItens(Item item)

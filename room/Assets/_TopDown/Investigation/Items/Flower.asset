@@ -12,15 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e1544519fd9a84393d853e6134ee59, type: 3}
   m_Name: Flower
   m_EditorClassIdentifier: 
-  type: 0
-  clueId: 0
+  type: 2
   title: Flowerrr
   available: 1
   description: this is a flower flower flower
-  image: {fileID: 21300000, guid: 2048119537defaa45a5f7ef29ff78275, type: 3}
+  icon: {fileID: 21300000, guid: 288d7a8f26d1ca844b0e3a80ce73e50d, type: 3}
   audioClip: {fileID: 0}
-  grabbable: 1
   linkNode: 0
-  requiredItem: 0
   inventoryItem: 1
   collectMessage: 
+  grabbable: 1
+  requiredItem: 0
+  isFound: 0
+  clueList:
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
+  - {fileID: 11400000, guid: dbc794bbfc62a22458d827c1c4a46c6a, type: 2}
+  - {fileID: 11400000, guid: 98df28349186dbe44ab995051989b480, type: 2}
