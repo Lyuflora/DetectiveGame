@@ -34,13 +34,18 @@ namespace Dec
         private void Start()
         {
             inventory = PlayerInventory.m_Instance;
-            inventory.OnItemChangedEvent += UpdateItemUI;
+            inventory.OnItemChangedEvent += UpdateUIWarning;
 
             inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
             manifest = TestAPP.m_Instance.m_Manifest;
 
             InitInventoryUI();
             currentSlot = inventorySlots[0];    //   默认第一个
+        }
+
+        public void UpdateUIWarning()
+        {
+            Debug.Log("New items in the inventory");
         }
 
         public void InitInventoryUI()

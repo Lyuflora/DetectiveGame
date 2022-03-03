@@ -942,13 +942,14 @@ GameObject:
   - component: {fileID: 101122816}
   - component: {fileID: 101122815}
   - component: {fileID: 101122814}
+  - component: {fileID: 101122818}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &101122814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,6 +1035,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &101122818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101122813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd58ed5aa6ba54289c4069860fc3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsParent: {fileID: 415666867}
+  currentSlot: {fileID: 0}
+  itemName: {fileID: 1276177444}
+  itemDescription: {fileID: 1148392162}
+  itemImage: {fileID: 67719888}
+  clueParent: {fileID: 324295198}
+  clueEntryPrefab: {fileID: 5894382331877190546, guid: 86554bbb246b5d347acd640e1dcf9693, type: 3}
+  unknownItemName: '? ? ?'
 --- !u!1 &106546173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,7 +2414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000045345616}
+  m_AnchoredPosition: {x: 0, y: 0.0022687733}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &324295199
@@ -14414,7 +14435,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9999775}
+  m_AnchorMax: {x: 1, y: 0.95362675}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14969,7 +14990,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 717899032}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999775
+  m_Size: 0.95362675
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23999,7 +24020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1694334288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24040,7 +24061,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694334287}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdcd58ed5aa6ba54289c4069860fc3b4, type: 3}
   m_Name: 

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637813418746694764
-    m_Hash: 476205571
+      ticks: 637819273607183836
+    m_Hash: 2076411701
   m_LockFileStatus:
     m_FilePath: E:/Unity Workspace/2022/DetectiveGame/room/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637813418746779238
-    m_Hash: 4060530884
+      ticks: 637819273607183836
+    m_Hash: 4038768445
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -954,6 +954,7 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -980,6 +981,7 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -2929,6 +2931,7 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
+        - 2.0.2
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
@@ -2936,6 +2939,7 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
+        - 2.0.2
         verified: 1.0.6
       dependencies: []
       resolvedDependencies: []
@@ -3239,6 +3243,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         compatible:
         - 1.0.0-preview.2
         - 1.0.0-preview.3
@@ -3251,6 +3256,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         verified: 2.0.2
       dependencies: []
       resolvedDependencies: []
@@ -3306,6 +3312,8 @@ m_PackageAssets:
         - 1.1.0-pre.10
         - 1.1.0-pre.11
         - 1.1.0-pre.41
+        - 1.1.0-pre.69
+        - 1.2.0
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -3314,6 +3322,8 @@ m_PackageAssets:
         - 1.1.0-pre.10
         - 1.1.0-pre.11
         - 1.1.0-pre.41
+        - 1.1.0-pre.69
+        - 1.2.0
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest

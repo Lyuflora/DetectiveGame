@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb97c57fc23fa14f9559676fa7073ca, type: 3}
+  m_Name: Lamp A
+  m_EditorClassIdentifier: 
+  title: Lamp light
+  m_ClueId: 0
+  m_Owner: {fileID: 11400000, guid: ef2528255dd3c024e8553397b87e098e, type: 2}
+  isFound: 0
+  description: The lamp light is yellow
+  icon: {fileID: 21300000, guid: dbe7202827249f548b53f380bbc381e9, type: 3}
