@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour {
+namespace Dec
+{
 
-    public Text scoreText;
-    public static int scoreNumber;
-   
+    public class Score : MonoBehaviour
+    {
 
-    void Start () {
-        
-        PlayerPrefs.GetInt("Score", scoreNumber);
-	}
-	
-	
-	void Update () {
+        public Text scoreText;
+        public static int scoreNumber;
+
+
+        void Start()
+        {
+
+            PlayerPrefs.GetInt("Score", scoreNumber);
+        }
+
+
+        void Update()
+        {
 
             PlayerPrefs.SetInt("Score", scoreNumber);
             scoreText.text = scoreNumber.ToString();
 
-        if (PlayerPrefs.GetInt("HighScore") < scoreNumber)
+            if (PlayerPrefs.GetInt("HighScore") < scoreNumber)
 
-            PlayerPrefs.SetInt("HighScore", scoreNumber);
+                PlayerPrefs.SetInt("HighScore", scoreNumber);
 
-        if (scoreNumber >= 2)
-        {
-            QuizManager.m_Instance.ShowAnswer();
         }
     }
 }

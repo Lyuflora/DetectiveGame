@@ -67,7 +67,7 @@ namespace Dec
                     if (item.isFound)
                     {
                         Debug.Log("Add Item to Inventory");
-                        inventorySlots[i].AddItemUI(item);
+                        inventorySlots[i].DisplayItemUI(item);
                         itemName.text = item.title;
                     }
                     else

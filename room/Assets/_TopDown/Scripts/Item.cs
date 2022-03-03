@@ -22,7 +22,12 @@ public class Item : ScriptableObject
 
 
         [Header("Inventory")]
+        // the following two categories are mutually exclusive
+        [Tooltip("有的物品交互后不加入物品栏，是干扰项")]
         public bool inventoryItem;
+        [Tooltip("有的物品是做题之后解锁的，并非从现场搜证得来")]
+        public bool isInsight = false;
+
         public string collectMessage;
         public bool grabbable;
         public bool requiredItem;   // no use

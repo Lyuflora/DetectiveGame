@@ -1,196 +1,279 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class QuizManager : MonoBehaviour {
+namespace Dec {
+    public class QuizManager : MonoBehaviour {
 
-    public GameObject carrot, car, grapes, carrotBlack, carBlack, grapesBlack, blockPanel;
-
-
-    Vector3 initialCarrotPosition, initialCarPosition, initialGrapesPosition, initialDogPosition, initialSheepPosition;
-
-    bool carrotBool, carBool, grapesBool, dogBool, sheepBool = false;
-
-    public AudioSource source;
-    public AudioClip[] correct;
-    public AudioClip incorrect;
-
-    public GameObject QuestionImage;
-    public Sprite answerImage;
-
-    public GameObject PausePanel;
-    public static bool gameIsPaused;
-
-    public static QuizManager m_Instance;
-
-    private void Awake()
-    {
-        m_Instance = this;
-    }
-
-    void Start()
-    {
-        initialCarrotPosition = carrot.transform.position;
-        initialCarPosition = car.transform.position;
-        initialGrapesPosition = grapes.transform.position;
-
-    }
-
-
-    public void ShowAnswer()
-    {
-        QuestionImage.GetComponent<Image>().sprite = answerImage;
-    }
-
-
-    public void DragCarrot()
-    {
+        public static QuizManager m_Instance;
+        public GameObject carrot, car, grapes, carrotBlack, carBlack, grapesBlack, blockPanel;
+        Vector3 initialCarrotPosition, initialCarPosition, initialGrapesPosition, initialDogPosition, initialSheepPosition;
+        bool carrotBool, carBool, grapesBool, dogBool, sheepBool = false;
         
-        carrot.transform.position = Input.mousePosition;
+        [Header("Sounds")]
+        public AudioSource source;
+        public AudioClip[] correct;
+        public AudioClip incorrect;
 
-    }
+        [Header("Quiz UI Components")]
+        public TMP_Text questionSentence;
+        public GameObject m_QuestionImage;
+        public Sprite answerImage;
 
+        public GameObject PausePanel;
+        public static bool gameIsPaused;
 
-    public void DragCar()
-    {
+        public GameObject m_CheckButton;
 
-       
-        car.transform.position = Input.mousePosition;
+        private RectTransform rectTransform;
+        private CanvasGroup canvasGroup;
 
-    }
+        [Header("Quiz Contents")]
+        [SerializeField] private Questions m_CurrentQuestion;
+        public List<Questions> m_QuestionList;
 
-    public void DragGrapes()
-    {
+        public Transform ChoiceSlotParent;
+        public Transform ChoiceDragableParent;
+        [SerializeField] private GameObject m_ChoiceSlotPrefab;
+        [SerializeField] private GameObject m_ChoiceDragablePrefab;
 
-       
-        grapes.transform.position = Input.mousePosition;
+        [SerializeField]
+        private string choiceCode;
 
-    }
-    
-
-
-    public void DropCarrot()
-    {
-
-        float distance = Vector3.Distance(carrot.transform.position, carrotBlack.transform.position);
-        if (distance < 50)
+        private void Awake()
         {
-            carrot.transform.position = carrotBlack.transform.position;
-            Score.scoreNumber += 1;
-            carrotBool = true;
-            source.clip = correct[Random.Range(0, correct.Length)];
-            source.Play();
+            m_Instance = this;
+            rectTransform = GetComponent<RectTransform>();
+            canvasGroup = GetComponent<CanvasGroup>();
+        }
+
+        public void Start()
+        {
+            //initialCarrotPosition = carrot.transform.position;
+            m_CheckButton.SetActive(false);
+            ClearQuestion();
+            LoadQuestion();
+        }
+
+        public void OnCheckButtonClick()
+        {
+            Debug.Log("Check if the answer is right");
+        }
+
+        public void ClearChoice()
+        {
             
         }
-        else
-
+        public void UpdateChoice()
         {
-            carrot.transform.position = initialCarrotPosition;
-            source.clip = incorrect;
-            source.Play();
+
+        }
+
+        // Assign current quesiton to the UI
+        public void LoadQuestion()
+        {
+            Debug.Log("Load Quiz Panel");
+            // Question
+            questionSentence.text = m_CurrentQuestion.question;
+
+            // Choice Slot
+            int slotCount = m_CurrentQuestion.m_CorrectChoices.Count;
+            for (int i = 0; i < slotCount; i++)
+            {
+                GameObject newChoiceSlot = Instantiate(m_ChoiceSlotPrefab, ChoiceSlotParent);
+            }
+
+
+            // Choices
+            int choiceCount = m_CurrentQuestion.m_DragableChoices.Count;
+            for (int i = 0; i < choiceCount; i++)
+            {
+                GameObject newChoice = Instantiate(m_ChoiceDragablePrefab, ChoiceDragableParent);
+                newChoice.GetComponentInChildren<InventorySlot>().DisplayItemUI(m_CurrentQuestion.m_DragableChoices[i]);
+
+            }
+            ChoiceDragableParent.GetComponent<HorizontalLayoutGroup>().enabled = true;
+
+            StartCoroutine(CallDialogue());
+
+
+            // Right Answer
+
+        }
+        IEnumerator CallDialogue()
+        {
+            Debug.Log("Dialogue");
+            yield return new WaitForSeconds(0.5f);
+            ChoiceDragableParent.GetComponent<HorizontalLayoutGroup>().enabled = false;
         }
 
 
 
-
-    }
-
-    public void DropCar()
-    {
-
-        float distance = Vector3.Distance(car.transform.position, carBlack.transform.position);
-        if (distance < 50)
+        public void ClearQuestion()
         {
-            car.transform.position = carBlack.transform.position;
+            Debug.Log("Load Quiz Panel");
+            Score.scoreNumber = 0;
+            foreach (Transform child in ChoiceSlotParent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            foreach (Transform child in ChoiceDragableParent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+
+        public void DragChoice(PointerEventData pointerData)
+        {
+            Debug.Log("Pick an answer");
+            rectTransform.anchoredPosition = Input.mousePosition;
+            //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
+        public void EndDragChoice()
+        {
             Score.scoreNumber += 1;
-            carBool = true;
-            source.clip = correct[Random.Range(0, correct.Length)];
-            source.Play();
+            if (CheckScore())
+            {
+                ShowCheckButton();
+            }
         }
-        else
+        bool CheckScore()
         {
-            car.transform.position = initialCarPosition;
-            source.clip = incorrect;
-            source.Play();
+            // if fill all slots, return true, else return false
+            return Score.scoreNumber == m_CurrentQuestion.m_CorrectChoices.Count;
         }
 
-    }
-
-    public void DropGrapes()
-    {
-
-        float distance = Vector3.Distance(grapes.transform.position, grapesBlack.transform.position);
-        if (distance < 50)
+        public void ShowAnswer()
         {
-            grapes.transform.position = grapesBlack.transform.position;
-            Score.scoreNumber += 1;
-            grapesBool = true;
-            source.clip = correct[Random.Range(0, correct.Length)];
-            source.Play();
+            m_QuestionImage.GetComponent<Image>().sprite = m_CurrentQuestion.m_Answer.icon;
         }
-        else
+        public void ShowCheckButton()
         {
-            grapes.transform.position = initialGrapesPosition;
-            source.clip = incorrect;
-            source.Play();
+            m_CheckButton.SetActive(true);
         }
 
-    }
 
-
-    
-   
-
-
-     void Update()
-    {
-        if(carrotBool && carBool && grapesBool && dogBool && sheepBool || Timer.time<=0)
+        // no use
+        public void DropChoice()
         {
 
-            //StartCoroutine(LoadNextScene());
+            float distance = Vector3.Distance(carrot.transform.position, carrotBlack.transform.position);
+            if (distance < 50)
+            {
+                carrot.transform.position = carrotBlack.transform.position;
+                Score.scoreNumber += 1;
+                carrotBool = true;
+                source.clip = correct[Random.Range(0, correct.Length)];
+                source.Play();
+
+            }
+            else
+
+            {
+                carrot.transform.position = initialCarrotPosition;
+                source.clip = incorrect;
+                source.Play();
+            }
+
         }
-    }
 
-    IEnumerator LoadNextScene()
-    {
-        blockPanel.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-    }
-
-
-    public void Setting()
-    {
-        if (gameIsPaused)
+        public void DropCar()
         {
-            Resume();
+
+            float distance = Vector3.Distance(car.transform.position, carBlack.transform.position);
+            if (distance < 50)
+            {
+                car.transform.position = carBlack.transform.position;
+                Score.scoreNumber += 1;
+                carBool = true;
+                source.clip = correct[Random.Range(0, correct.Length)];
+                source.Play();
+            }
+            else
+            {
+                car.transform.position = initialCarPosition;
+                source.clip = incorrect;
+                source.Play();
+            }
+
         }
-        else
+
+        public void DropGrapes()
         {
-            Pause();
+
+            float distance = Vector3.Distance(grapes.transform.position, grapesBlack.transform.position);
+            if (distance < 50)
+            {
+                grapes.transform.position = grapesBlack.transform.position;
+                Score.scoreNumber += 1;
+                grapesBool = true;
+                source.clip = correct[Random.Range(0, correct.Length)];
+                source.Play();
+            }
+            else
+            {
+                grapes.transform.position = initialGrapesPosition;
+                source.clip = incorrect;
+                source.Play();
+            }
+
         }
 
 
-    }
 
-    public void Resume()
-    {
-        PausePanel.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-    }
-    public void Pause()
-    {
-        PausePanel.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-    }
 
-    public void Exit()
-    {
-        Application.Quit();
+
+
+        void Update()
+        {
+            if (carrotBool && carBool && grapesBool && dogBool && sheepBool || Timer.time <= 0)
+            {
+
+                //StartCoroutine(LoadNextScene());
+            }
+        }
+
+        IEnumerator LoadNextScene()
+        {
+            blockPanel.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+
+
+        public void Setting()
+        {
+            if (gameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+
+        public void Resume()
+        {
+            PausePanel.SetActive(false);
+            Time.timeScale = 1f;
+            gameIsPaused = false;
+        }
+        public void Pause()
+        {
+            PausePanel.SetActive(true);
+            Time.timeScale = 0f;
+            gameIsPaused = true;
+        }
+
+        public void Exit()
+        {
+            Application.Quit();
+        }
     }
 }

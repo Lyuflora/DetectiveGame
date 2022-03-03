@@ -12,7 +12,19 @@ namespace Dec
 
         public Item item;
 
-        public void AddItemUI(Item newItem)
+        private void Start()
+        {
+            if (item!=null && item.isFound)
+            {
+                DisplayItemUI(item);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        public void DisplayItemUI(Item newItem)
         {
             item = newItem;
             icon.sprite = item.icon;
@@ -20,6 +32,19 @@ namespace Dec
             typeIcon.enabled = true;
             icon.enabled = true;
             title.text = newItem.title;
+        }
+        // display self item by default
+        public void DisplayItemUI()
+        {
+            if (item != null)
+            {
+                icon.sprite = item.icon;
+                typeIcon.sprite = TestAPP.m_Instance.m_Manifest.ItemTypeSprites[(int)item.type];
+                typeIcon.enabled = true;
+                icon.enabled = true;
+                title.text = item.title;
+            }
+
         }
 
         public void LockItemUI(Item newItem)
@@ -39,9 +64,14 @@ namespace Dec
 
         public void ItemSlotOnClick()
         {
-            Debug.Log("Click Item Slot " + item.title);
-            InventoryUI.m_Instance.SetCurrentSlot(this);
-            InventoryUI.m_Instance.RefreshInventory();
+            if (item != null)
+            {
+                Debug.Log("Click Item Slot " + item.title);
+                InventoryUI.m_Instance.SetCurrentSlot(this);
+                InventoryUI.m_Instance.RefreshInventory();
+            }
+
+
         }
     }
 }

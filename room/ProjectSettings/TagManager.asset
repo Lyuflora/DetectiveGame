@@ -8,6 +8,8 @@ TagManager:
   - Selectable
   - NPC
   - Interactables
+  - ChoiceParent
+  - QuizCanvas
   layers:
   - Default
   - TransparentFX
