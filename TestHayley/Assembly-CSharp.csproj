@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,80 +53,78 @@
     <UnityVersion>2020.3.21f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\CustomImageEffect.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Ground.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\TabButton.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\NodeLine.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\ClueSlot.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\PlayerInteraction.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\SelectionManager.cs" />
-    <Compile Include="Assets\Scripts\QuizManager.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\MF.cs" />
-    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
     <Compile Include="Assets\_TopDown\Scripts\ClueTrigger.cs" />
-    <Compile Include="Assets\Scripts\QuizGameManager.cs" />
-    <Compile Include="Assets\_TopDown\PlayerNavMesh.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\Pixelation.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostCont.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\Pattern.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostProf.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\AdjacencyList.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\GU.cs" />
-    <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\Interactables.cs" />
     <Compile Include="Assets\PixelPlatform\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\lr_Testing.cs" />
-    <Compile Include="Assets\Scripts\Menu.cs" />
-    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\Stylizer.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\NPC.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\ChoiceSlot.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\Billboard.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\IClickable.cs" />
-    <Compile Include="Assets\_TopDown\Manifest.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Item.cs" />
-    <Compile Include="Assets\PixelPlatform\Scripts\FollowPlayer.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\Vertex.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\DotController.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\NodeSphere.cs" />
-    <Compile Include="Assets\Scripts\Splash.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\SC_TopDownController.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\InventoryUI.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\TabGroup.cs" />
-    <Compile Include="Assets\Scripts\EndGame.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\UIManager.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostComp.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\LineCollision.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\Palette.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\CameraRotator.cs" />
     <Compile Include="Assets\_TopDown\Scripts\OutlineController.cs" />
-    <Compile Include="Assets\PixelPlatform\Scripts\SpriteObject.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\PenTool.cs" />
     <Compile Include="Assets\Scripts\Questions.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\GrainMod.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Paperwork.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Interface\InventorySlot.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Clue.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\PlayerInventory.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\PublicMethods.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\GrainComp.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\Functions\PenCanvas.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Interface\DragDrop.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostMod.cs" />
-    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\RTF.cs" />
-    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\_TopDown\Scripts\Functions\TestAPP.cs" />
     <Compile Include="Assets\Stylizer\Resources\Scripts\StylizerBase.cs" />
-    <Compile Include="Assets\_TopDown\Scripts\ClueManager.cs" />
+    <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\QuizGameManager.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostProf.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\Billboard.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\NodeSphere.cs" />
+    <Compile Include="Assets\Scripts\Splash.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\Palette.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\PenTool.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\InventorySlot.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\PublicMethods.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\PenCanvas.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\PostMod.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\RTF.cs" />
     <Compile Include="Assets\_TopDown\Scripts\NodeInfo.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\NodeLine.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\ClueSlot.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\SelectionManager.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\Pattern.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\lr_Testing.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\NPC.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\IClickable.cs" />
+    <Compile Include="Assets\PixelPlatform\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\SC_TopDownController.cs" />
+    <Compile Include="Assets\PixelPlatform\Scripts\SpriteObject.cs" />
+    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\CustomImageEffect.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Ground.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\PlayerInteraction.cs" />
+    <Compile Include="Assets\Scripts\QuizManager.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\UnityGrain\Runtime\MF.cs" />
+    <Compile Include="Assets\_TopDown\PlayerNavMesh.cs" />
+    <Compile Include="Assets\Stylizer\Resources\Scripts\Pixelation.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\Interactables.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\ChoiceSlot.cs" />
+    <Compile Include="Assets\_TopDown\Manifest.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Functions\Vertex.cs" />
+    <Compile Include="Assets\Scripts\EndGame.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\UIManager.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Interface\CameraRotator.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\Clue.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\ClueManager.cs" />
+    <Compile Include="Assets\_TopDown\Scripts\DialogSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
